@@ -1,0 +1,25 @@
+{
+"name": "apache",
+"type": "extensions",
+"location": "[resourceGroup().location]",
+"apiVersion": "2015-06-15",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('scriptextensionNa
+me'))]"
+],
+"tags": {
+"displayName": "installApache"
+},
+"properties": {
+"publisher": "Microsoft.Azure.Extensions",
+"type": "CustomScript",
+"typeHandlerVersion": "2.0",
+"autoUpgradeMinorVersion": true,
+"settings": {
+"fileUris": [
+" https://examplestorageaccount.blob.core.windows.net/scripts/apache.sh "
+],
+"commandToExecute": "sh apache.sh"
+}
+}
+}
